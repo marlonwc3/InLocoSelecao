@@ -1,9 +1,10 @@
 
-<h2>Log in</h2>
+<h2>Login</h2>
+
 <%- flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<%- end -%>
-<%= devise_error_messages! %> </p>
+    <%= content_tag :p, msg, :id => "error_text" if msg.is_a?(String) %>
+  <%- end -%> 
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
