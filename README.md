@@ -12,12 +12,12 @@
 * Using SendGrid and confirmable module for email confirmation
 
 * How to run the project:
-	in InLocoSelecao folder, run:
-		bundle install
-		bin/rails server -p 3000
+	- in InLocoSelecao folder, run:
+		- bundle install
+		- bin/rails server -p 3000
 
 * How to run the test suite
-	in InLocoSelecao folder, run:
-		bin/rails test
+	- in InLocoSelecao folder, run:
+		- bin/rails test
 		
 - Location is Everything :)
