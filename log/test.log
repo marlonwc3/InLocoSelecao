@@ -1,0 +1,1978 @@
+  [1m[36m (139.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (88.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+
+  [1m[36m (88.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (87.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (107.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (99.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (86.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160227200108')
+  [1m[36m (77.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160226231124')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-03-01 15:54:40', '2016-03-01 15:54:40', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-03-01 15:54:40', '2016-03-01 15:54:40', 298486374)[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-03-01 16:02:24', '2016-03-01 16:02:24', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-03-01 16:02:24', '2016-03-01 16:02:24', 298486374)[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:06:14', '2016-03-01 16:06:14', 127326141)
+  [1m[36m (76.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------
+UserTest: test_the_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:08:51', '2016-03-01 16:08:51', 127326141)
+  [1m[36m (78.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+UserTest: test_the_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:12:37', '2016-03-01 16:12:37', 127326141)
+  [1m[36m (53.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+UserTest: test_the_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:32:01', '2016-03-01 16:32:01', 127326141)
+  [1m[36m (77.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+UserTest: test_should_sign_in_using_login
+-----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:32:51', '2016-03-01 16:32:51', 127326141)
+  [1m[36m (92.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+UserTest: test_should_sign_in_using_login
+-----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:32:59', '2016-03-01 16:32:59', 127326141)
+  [1m[36m (68.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:33:03', '2016-03-01 16:33:03', 127326141)
+  [1m[36m (84.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:33:24', '2016-03-01 16:33:24', 127326141)
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:34:45', '2016-03-01 16:34:45', 127326141)
+  [1m[36m (81.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:34:57', '2016-03-01 16:34:57', 127326141)
+  [1m[36m (89.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:35:38', '2016-03-01 16:35:38', 127326141)
+  [1m[36m (84.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:35:57', '2016-03-01 16:35:57', 127326141)
+  [1m[36m (79.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:36:04', '2016-03-01 16:36:04', 127326141)
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+WelcomeControllerTest: test_should_get_index
+--------------------------------------------
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:36:59', '2016-03-01 16:36:59', 127326141)
+  [1m[36m (81.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+WelcomeControllerTest: test_should_get_index
+--------------------------------------------
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:37:16', '2016-03-01 16:37:16', 127326141)
+  [1m[36m (87.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+WelcomeControllerTest: test_should_get_index
+--------------------------------------------
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:37:37', '2016-03-01 16:37:37', 127326141)
+  [1m[36m (73.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:37:48', '2016-03-01 16:37:48', 127326141)
+  [1m[36m (82.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:40:24', '2016-03-01 16:40:24', 127326141)
+  [1m[36m (85.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:41:19', '2016-03-01 16:41:19', 127326141)
+  [1m[36m (86.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:42:27', '2016-03-01 16:42:27', 127326141)
+  [1m[36m (80.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:45:11', '2016-03-01 16:45:11', 127326141)
+  [1m[36m (87.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:45:47', '2016-03-01 16:45:47', 127326141)
+  [1m[36m (79.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+WelcomeControllerTest: test_should_sign_in_using_login
+------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:47:54', '2016-03-01 16:47:54', 127326141)
+  [1m[36m (67.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page
+------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:53:34', '2016-03-01 16:53:34', 695108287)
+  [1m[36m (79.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('mras@cin.ufpe.br', 'marlon123', '2016-03-01 16:53:43', '2016-03-01 16:53:43', 695108287)
+  [1m[36m (85.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"marlon"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 16:55:15', '2016-03-01 16:55:15', 583151868)
+  [1m[36m (83.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:07:53', '2016-03-01 17:07:53', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:07:53', '2016-03-01 17:07:53', 363868659)[0m
+  [1m[35m (84.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:08:03', '2016-03-01 17:08:03', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:08:03', '2016-03-01 17:08:03', 363868659)[0m
+  [1m[35m (104.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:08:52', '2016-03-01 17:08:52', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:08:52', '2016-03-01 17:08:52', 363868659)[0m
+  [1m[35m (58.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:09:05', '2016-03-01 17:09:05', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:09:05', '2016-03-01 17:09:05', 363868659)[0m
+  [1m[35m (82.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:10:25', '2016-03-01 17:10:25', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:10:25', '2016-03-01 17:10:25', 363868659)[0m
+  [1m[35m (81.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:10:32', '2016-03-01 17:10:32', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:10:32', '2016-03-01 17:10:32', 363868659)[0m
+  [1m[35m (84.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:10:44', '2016-03-01 17:10:44', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:10:44', '2016-03-01 17:10:44', 363868659)[0m
+  [1m[35m (79.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:10:49', '2016-03-01 17:10:49', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:10:49', '2016-03-01 17:10:49', 363868659)[0m
+  [1m[35m (84.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:11:01', '2016-03-01 17:11:01', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:11:01', '2016-03-01 17:11:01', 363868659)[0m
+  [1m[35m (86.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:13:27', '2016-03-01 17:13:27', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:13:27', '2016-03-01 17:13:27', 363868659)[0m
+  [1m[35m (84.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:13:42', '2016-03-01 17:13:42', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:13:42', '2016-03-01 17:13:42', 363868659)[0m
+  [1m[35m (74.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:13:54', '2016-03-01 17:13:54', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:13:54', '2016-03-01 17:13:54', 363868659)[0m
+  [1m[35m (91.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:15:33', '2016-03-01 17:15:33', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:15:33', '2016-03-01 17:15:33', 363868659)[0m
+  [1m[35m (82.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:16:42', '2016-03-01 17:16:42', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:16:42', '2016-03-01 17:16:42', 363868659)[0m
+  [1m[35m (103.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:16:58', '2016-03-01 17:16:58', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:16:58', '2016-03-01 17:16:58', 363868659)[0m
+  [1m[35m (87.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:19:44', '2016-03-01 17:19:44', 583151868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:19:44', '2016-03-01 17:19:44', 363868659)[0m
+  [1m[35m (87.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:20:50', '2016-03-01 17:20:50', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:20:50', '2016-03-01 17:20:50', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:20:50', '2016-03-01 17:20:50', 363868659)
+  [1m[36m (90.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:21:08', '2016-03-01 17:21:08', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:21:08', '2016-03-01 17:21:08', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:21:08', '2016-03-01 17:21:08', 363868659)
+  [1m[36m (101.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:21:44', '2016-03-01 17:21:44', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:21:44', '2016-03-01 17:21:44', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:21:44', '2016-03-01 17:21:44', 363868659)
+  [1m[36m (86.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:22:38', '2016-03-01 17:22:38', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:22:38', '2016-03-01 17:22:38', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:22:38', '2016-03-01 17:22:38', 363868659)
+  [1m[36m (90.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:23:38', '2016-03-01 17:23:38', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:23:38', '2016-03-01 17:23:38', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:23:38', '2016-03-01 17:23:38', 363868659)
+  [1m[36m (70.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:27:07', '2016-03-01 17:27:07', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:27:07', '2016-03-01 17:27:07', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:27:07', '2016-03-01 17:27:07', 363868659)
+  [1m[36m (88.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:27:50', '2016-03-01 17:27:50', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:27:50', '2016-03-01 17:27:50', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:27:50', '2016-03-01 17:27:50', 363868659)
+  [1m[36m (85.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------
+UserTest: test_should_not_save_users_with_duplicated_email
+----------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:27:54', '2016-03-01 17:27:54', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:27:54', '2016-03-01 17:27:54', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:27:54', '2016-03-01 17:27:54', 363868659)
+  [1m[36m (57.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------
+UserTest: test_should_not_save_users_with_duplicated_email
+----------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 811765527]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at
+---------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:28:04', '2016-03-01 17:28:04', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:28:04', '2016-03-01 17:28:04', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:28:04', '2016-03-01 17:28:04', 363868659)
+  [1m[36m (82.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:28:20', '2016-03-01 17:28:20', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:28:20', '2016-03-01 17:28:20', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:28:20', '2016-03-01 17:28:20', 363868659)
+  [1m[36m (107.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:28:40', '2016-03-01 17:28:40', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:28:40', '2016-03-01 17:28:40', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:28:40', '2016-03-01 17:28:40', 363868659)
+  [1m[36m (86.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:28:53', '2016-03-01 17:28:53', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:28:53', '2016-03-01 17:28:53', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:28:53', '2016-03-01 17:28:53', 363868659)
+  [1m[36m (71.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:29:00', '2016-03-01 17:29:00', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:29:00', '2016-03-01 17:29:00', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:29:00', '2016-03-01 17:29:00', 363868659)
+  [1m[36m (82.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:29:23', '2016-03-01 17:29:23', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:29:23', '2016-03-01 17:29:23', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:29:23', '2016-03-01 17:29:23', 363868659)
+  [1m[36m (101.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:30:36', '2016-03-01 17:30:36', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:30:36', '2016-03-01 17:30:36', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:30:36', '2016-03-01 17:30:36', 363868659)
+  [1m[36m (80.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:30:54', '2016-03-01 17:30:54', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:30:54', '2016-03-01 17:30:54', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:30:54', '2016-03-01 17:30:54', 363868659)
+  [1m[36m (104.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:33:44', '2016-03-01 17:33:44', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:33:44', '2016-03-01 17:33:44', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:33:44', '2016-03-01 17:33:44', 363868659)
+  [1m[36m (82.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:34:31', '2016-03-01 17:34:31', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:34:31', '2016-03-01 17:34:31', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:34:31', '2016-03-01 17:34:31', 363868659)
+  [1m[36m (67.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:34:41', '2016-03-01 17:34:41', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:34:41', '2016-03-01 17:34:41', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:34:41', '2016-03-01 17:34:41', 363868659)
+  [1m[36m (65.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:34:51', '2016-03-01 17:34:51', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:34:51', '2016-03-01 17:34:51', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:34:51', '2016-03-01 17:34:51', 363868659)
+  [1m[36m (103.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:35:01', '2016-03-01 17:35:01', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:35:01', '2016-03-01 17:35:01', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:35:01', '2016-03-01 17:35:01', 363868659)
+  [1m[36m (92.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 2188ms (Views: 2183.5ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:35:24', '2016-03-01 17:35:24', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:35:24', '2016-03-01 17:35:24', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:35:24', '2016-03-01 17:35:24', 363868659)
+  [1m[36m (65.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 217ms (Views: 212.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:35:46', '2016-03-01 17:35:46', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:35:46', '2016-03-01 17:35:46', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:35:46', '2016-03-01 17:35:46', 363868659)
+  [1m[36m (69.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------------
+WelcomeControllerTest: test_a_a_a_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>{"login"=>"login", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 198ms (Views: 197.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:36:21', '2016-03-01 17:36:21', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:36:21', '2016-03-01 17:36:21', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:36:21', '2016-03-01 17:36:21', 363868659)
+  [1m[36m (79.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 210ms (Views: 204.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:38:02', '2016-03-01 17:38:02', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:38:02', '2016-03-01 17:38:02', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:38:02', '2016-03-01 17:38:02', 363868659)
+  [1m[36m (76.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"confirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:38:15', '2016-03-01 17:38:15', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:38:15', '2016-03-01 17:38:15', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:38:15', '2016-03-01 17:38:15', 363868659)
+  [1m[36m (88.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 225ms (Views: 223.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:39:19', '2016-03-01 17:39:19', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:39:19', '2016-03-01 17:39:19', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:39:19', '2016-03-01 17:39:19', 363868659)
+  [1m[36m (106.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 228ms (Views: 226.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 583151868]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 17:39:36', '2016-03-01 17:39:36', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 17:39:36', '2016-03-01 17:39:36', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 17:39:36', '2016-03-01 17:39:36', 363868659)
+  [1m[36m (94.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_confirmed_user
+--------------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 213ms (Views: 207.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unconfirmed_users_to_login_page_when_try_to_acess_home_page
+-------------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"unconfirmed_user"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 583151868]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 18:18:46', '2016-03-01 18:18:46', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 18:18:46', '2016-03-01 18:18:46', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 18:18:46', '2016-03-01 18:18:46', 363868659)
+  [1m[36m (65.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_logged_user
+-----------------------------------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 149ms (Views: 141.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at_symbol
+----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 811765527]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------
+UserTest: test_should_not_save_users_with_duplicated_email
+----------------------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 811765527]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
