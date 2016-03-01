@@ -1976,3 +1976,61 @@ UserTest: test_should_not_save_users_with_duplicated_email
   [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
   [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('carlos@cin.ufpe.br', '909090123', '2016-03-01 20:10:30', '2016-03-01 20:10:30', 811765527)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@cin.ufpe.br', '12345678', '2016-03-01 20:10:30', '2016-03-01 20:10:30', 583151868)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmed_at", "confirmation_sent_at", "created_at", "updated_at", "id") VALUES ('mras2@cin.ufpe.br', '$2a$10$W.vTJYCp6wmAKb89QdDe.eIp0J3mSd0WzWf3uJ82jdhdjo19nZNJm', '2016-02-27 13:39:56.225436', '2016-02-27 13:39:56.356529', '2016-02-27', '2016-03-01 20:10:30', '2016-03-01 20:10:30', 363868659)
+  [1m[36m (87.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------
+UserTest: test_should_not_save_user_with_email_without_at_symbol
+----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'teste_cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------
+UserTest: test_should_not_save_users_with_duplicated_email
+----------------------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 811765527]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 811765527]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@cin.ufpe.br' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserTest: test_should_not_save_user_without_email
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+WelcomeControllerTest: test_should_provide_acess_to_home_page_for_logged_user
+-----------------------------------------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 363868659]]
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"363868659"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 363868659]]
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 188ms (Views: 182.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------------------------------------
+WelcomeControllerTest: test_should_redirect_unlogged_users_to_login_page_when_try_to_acess_home_page
+----------------------------------------------------------------------------------------------------
+Processing by WelcomeController#index as HTML
+  Parameters: {"user"=>"carlos"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
