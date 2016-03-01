@@ -27824,3 +27824,38 @@ Processing by WelcomeController#index as HTML
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 17]]
   Rendered welcome/index.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-01 17:55:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 17]]
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 385ms (Views: 355.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-01 17:55:31 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 17]]
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 64ms (Views: 61.7ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-03-01 17:55:42 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bgUAOQiQhR8WR9FITYuDMO4cnTwZVX7lp8j0lZ5a5oqJ2X6ZWXqwrq7yZDJLl+P3zKtB5y/nwiGu+jtf/4/gIQ=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 17]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-01 17:55:42 -0300
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-03-01 17:55:42 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (6.0ms)
+  Rendered users/sessions/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
